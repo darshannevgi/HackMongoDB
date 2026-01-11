@@ -5,7 +5,7 @@ import certifi
 load_dotenv()
 ca = certifi.where()
 ATLAS_URI = "mongodb+srv://darshannevgi_db_hack:Alborada123@cluster0.18kljc.mongodb.net/?appName=Cluster0"
-client = MongoClient(ATLAS_URI, tlsCAFile=ca)
+client = MongoClient(os.getenv("MONGODB_URI"), tlsCAFile=ca)
 db = client.agentic_system
 
 # dummy vector with correct dimension

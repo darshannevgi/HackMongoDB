@@ -1,6 +1,8 @@
+import os
+
 import voyageai
 client = voyageai.Client(
-    api_key= "pa-f2CwBqGGP4uJUJ7UTyqybb2wx3gXPAHVKpHNLw-WuOO"
+    api_key= os.getenv("VOYAGE_API_KEY")
 )
 
 def embed(text: str):

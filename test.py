@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 
 fireworks = OpenAI(
-    api_key="fw_2vKeHWeZyu99qXudDFe9ww",
+    api_key=os.getenv("FIREWORKS_API_KEY"),
     base_url="https://api.fireworks.ai/inference/v1"
 )
 

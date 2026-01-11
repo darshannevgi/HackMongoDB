@@ -18,7 +18,7 @@ OPENAI_API_KEY = "sk-proj-WrKlcsPIfcbrRYdlR5LY8uMOEHzKoQpNlEYxZhfj6j-Nh4yAAhkPBu
 if not OPENAI_API_KEY:
     raise RuntimeError("OPENAI_API_KEY is not set. Export it in your environment.")
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def plan_launch(user_prompt: str) -> List[Dict]:
     """
     Planner agent:

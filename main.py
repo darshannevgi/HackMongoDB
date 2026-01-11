@@ -2,6 +2,8 @@ from agents.bootstrap_agents import bootstrap_agents
 from agents.planner import plan_launch
 from agents.run_agents import run_all_agents
 from agents.launch_lead import run as lead_run
+from dotenv import load_dotenv
+load_dotenv()
 
 if __name__ == "__main__":
     bootstrap_agents()
