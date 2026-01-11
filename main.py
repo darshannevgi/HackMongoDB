@@ -4,12 +4,27 @@ from agents.run_agents import run_all_agents
 from agents.launch_lead import run as lead_run
 from dotenv import load_dotenv
 load_dotenv()
+from db.client import db
+
+def cleanup_all():
+    """
+    Hackathon-simple cleanup: wipe run data.
+    Leaves agent registry intact (optional).
+    """
+    db.tasks.delete_many({})
+    db.shared_context.delete_many({})
+    # Optional: wipe agents too if you re-register each time
+    db.agents.delete_many({})
+    print("🧹 Cleaned up tasks + shared_context")
 
 if __name__ == "__main__":
+    cleanup_all()
     bootstrap_agents()
     plan_launch("We want to launch a new smart fitness wearable for teenagers in North America. Please analyze market demand, competitor pricing, and operational feasibility, and provide a recommendation on whether we should proceed with the launch.")
     run_all_agents()
     lead_run()
+    #cleanup_all()
+
 
 
 
