@@ -13,10 +13,6 @@ from embeddings.voyage import embed as voyage_embed
 
 
 PLANNER_MODEL = "gpt-4o-mini"
-OPENAI_API_KEY = "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"
-
-if not OPENAI_API_KEY:
-    raise RuntimeError("OPENAI_API_KEY is not set. Export it in your environment.")
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def plan_launch(user_prompt: str) -> List[Dict]:
